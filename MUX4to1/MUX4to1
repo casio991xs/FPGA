@@ -26,3 +26,6 @@ module MUX4to1 (Din,sel,Dout);
 endmodule
 
 **University Program VWF Simulation**
+
+
+**FPGA Pin Assignment implement**
