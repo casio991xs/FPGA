@@ -1,0 +1,28 @@
+**Code**
+module MUX4to1 (Din,sel,Dout);
+	input [3:0]Din;
+	input [1:0]sel;
+	output Dout;
+	
+	wire M0_OUT,M1_OUT;
+	
+	MUX2to1 M0(.a(Din[3]),
+				  .b(Din[2]),
+				  .sel(sel[0]),
+				  .c(M0_OUT)
+					);
+	
+	MUX2to1 M1(.a(Din[1]),
+				  .b(Din[0]),
+				  .sel(sel[0]),
+				  .c(M1_OUT) 
+					);
+					
+	MUX2to1 M2(.a(M0_OUT),
+				  .b(M1_OUT),
+				  .sel(sel[1]),
+				  .c(Dout)
+				   );
+endmodule
+
+**University Program VWF Simulation**
