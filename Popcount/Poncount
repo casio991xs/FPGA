@@ -1,0 +1,18 @@
+module Poncount(in, out);
+	input [9:0] in;
+	output reg[7:0] out;  //因為out會被放在alwasy block內使用,所以得宣告成reg(default是wire)
+
+    integer i;
+
+    always @ (*) begin
+           out = 8'b00000000;     
+            for (i=0; i<10; i=i+1)
+                begin
+                    if(in[i] == 1'b1) //針對每個bit做檢查,若是1,則做out+1'b1(加1),若非1,則做out+0'b0(加0)
+                        out = out + 1'b1;
+                    else
+                        out = out + 1'b0;
+                end
+        end
+
+endmodule
