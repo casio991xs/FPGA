@@ -1,4 +1,4 @@
-**Code**
+**模組調用**
 module MUX4to1 (Din,sel,Dout);
 	input [3:0]Din;
 	input [1:0]sel;
@@ -25,7 +25,22 @@ module MUX4to1 (Din,sel,Dout);
 				   );
 endmodule
 
-**University Program VWF Simulation**
 
-
-**FPGA Pin Assignment implement**
+**Always block**
+module MUX4to1_AlwaysBlock (a, b, c, d, sel, q);
+	input [7:0]a,b,c,d,sel;
+	output reg [1:0]q; //DFF has storage data function so need to declare a reg.
+	
+		wire out1, out2, out3;
+		
+	always @(*)
+		case(sel)
+			2'h0: q=d;
+			2'h1:	q=out1;
+			2'h2: q=out2;
+			2'h3: q=out3;
+		endcase
+		
+endmodule
+			
+		
