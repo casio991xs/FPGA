@@ -1,0 +1,13 @@
+module CLA8 (A,B,Cin,Cout,S);
+
+input [7:0]A, B;
+input Cin;
+output [7:0]S;
+output Cout;
+
+wire C0;
+
+CLA4 A0 (A[3:0], B[3:0], Cin, C0, S[3:0]);
+CLA4 A1 (A[7:4], B[7:4], C0, Cout, S[7:4]);
+
+endmodule
