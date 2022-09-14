@@ -1,0 +1,16 @@
+module Acc8 (w_en, clk, reset, Sout0, Sout1,Dout);
+
+input w_en,clk,reset;
+output [6:0]Sout0, Sout1;
+output Dout;
+
+wire [7:0]Din, Dout;
+
+assign Din=Dout+8'd1;
+
+DFF8 DFF0(Din,reset,clk,w_en,Dout);
+
+Seven_Segment S0(Dout[3:0], Sout0);
+Seven_Segment S1(Dout[7:4], Sout1);
+
+endmodule
