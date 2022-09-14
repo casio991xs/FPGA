@@ -1,0 +1,18 @@
+module DFF8 (Din,reset,clk,w_en,Dout);
+
+input [7:0]Din;
+input reset, clk, w_en;
+output [7:0]Dout;
+
+reg [7:0]Dout;
+
+always @(posedge clk or negedge reset)begin
+		if(!reset)
+			Dout<=8'd0;
+		else
+			Dout<= w_en? Din: Dout;
+
+	   end
+		
+endmodule
+			
