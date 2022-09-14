@@ -1,0 +1,17 @@
+module CLA4 (A,B,Cin,Cout,S);
+input [3:0]A,B;
+input Cin;
+output [3:0]S;
+output Cout;
+
+wire [3:0]G,P;
+wire C0, C1, C2;
+
+FA FA0(A[0],B[0],Cin,G[0],P[0],S[0]);
+FA FA1(A[1],B[1],C0,G[1],P[1],S[1]);
+FA FA2(A[2],B[2],C1,G[2],P[2],S[2]);
+FA FA3(A[3],B[3],C2,G[3],P[3],S[3]);
+
+CLG CLG0(Cin,G,P,C0,C1,C2,Cout);
+
+endmodule
