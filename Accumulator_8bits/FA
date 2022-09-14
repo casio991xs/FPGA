@@ -1,0 +1,9 @@
+module FA (A,B,Cin,G,P,S);
+input A, B, Cin;
+output G, P, S;
+
+assign G=A&B;
+assign P=A|B;
+xor(S,A,B,Cin);
+
+endmodule
