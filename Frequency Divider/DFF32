@@ -1,0 +1,18 @@
+//this DFF32 is designed for Acc32
+
+module DFF32 (Din, reset, w_en, clk, Dout);
+
+input [31:0] Din;
+input clk, reset, w_en;
+output [31:0] Dout;
+
+reg[31:0] Dout;
+
+always @(posedge clk)begin
+	if (reset)
+		Dout<=32'b0;
+	else
+		Dout<=(w_en)? Din: Dout;
+	end
+	
+endmodule
