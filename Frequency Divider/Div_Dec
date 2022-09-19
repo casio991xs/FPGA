@@ -1,0 +1,24 @@
+module Div_Dec (Din, Dout);
+
+input [2:0] Din;
+output [31:0] Dout;
+
+reg [31:0] Dout;
+
+always @(*)begin
+	case (Din)
+	
+	
+	3'b000: Dout=32'd200000000;
+   3'b001: Dout=32'd150000000;
+   3'b010: Dout=32'd100000000;
+   3'b011: Dout=32'd50000000;
+   3'b100: Dout=32'd25000000;
+   3'b101: Dout=32'd16666666;
+	3'b110: Dout=32'd10000000;
+	3'b111: Dout=32'd6250000;
+	endcase
+	end
+	
+endmodule
+	
