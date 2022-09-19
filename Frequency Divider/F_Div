@@ -1,0 +1,23 @@
+module F_Div (Fin, Fsel, Fout);
+
+input Fin;
+input [2:0]Fsel;
+output Fout;
+
+reg Fout;
+
+wire reset, F_t;
+
+wire [31:0] Dout, Acc_Out, Dout_h;
+
+assign reset=(Acc_Out>= Dout);
+assign F_t= (Acc_Out>Dout_h);
+assign Dout_h={1'b0, Dout[31:1]};
+
+Acc32 Acc0 (Fin,1'b1,reset,Acc_Out);
+Div_Dec D0 (Fsel, Dout);
+
+always @(posedge Fin)begin //last DFF used to stable F_t signal to Fout
+	Fout<=F_t;
+	end
+endmodule
