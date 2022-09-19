@@ -1,0 +1,11 @@
+module Acc32 (clk, w_en, reset, Acc_Out);
+input clk, w_en, reset;
+output [31:0] Acc_Out;
+
+wire [31:0] Din;
+
+assign Din=Acc_Out+32'b1;
+
+DFF32 D0 (Din, reset, w_en, clk, Acc_Out);
+
+endmodule
